@@ -5,7 +5,7 @@ $thisfile = basename(__FILE__, ".php");
 register_plugin(
 	$thisfile,
 	'News Manager Toolbar',
-	'0.1.1',
+	'0.1.2',
 	'Carlos Navarro',
 	'http://www.cyberiada.org/cnb/',
 	'SA GS Admin Toolbar + News Manager integration'
@@ -20,8 +20,11 @@ function nm_sa_toolbar(){
 	if ($id == $NMPAGEURL) {
 		unset($SATB_MENU_STATIC['edit']);
 		if (isset($_GET['post'])) {
-			$slug = $_GET['post'];
-			$SATB_MENU_STATIC['edit_news'] = array('title'=> i18n_r('news_manager/EDIT_POST'),'url'=>$fullpath.$GSADMIN.'/load.php?id=news_manager&edit='.$slug);
+			$slug = htmlentities($_GET['post']); // simple filter
+			# no path traversal and post exists?
+			if (dirname(realpath(NMPOSTPATH.$slug.'.xml')) == realpath(NMPOSTPATH) && file_exists(NMPOSTPATH.$slug.'.xml')) {
+				$SATB_MENU_STATIC['edit_news'] = array('title'=> i18n_r('news_manager/EDIT_POST'),'url'=>$fullpath.$GSADMIN.'/load.php?id=news_manager&edit='.$slug);
+			}
 		}
 	}
 }
