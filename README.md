@@ -1,4 +1,11 @@
-News_Manager_Toolbar-getsimplecms
-=================================
+News Manager Toolbar
+====================
 
-SA GS Admin Toolbar - News Manager (GetSimple CMS plugins) integration
+Adds links to News Manager admin main, create post and edit post pages in SA Toolbar.
+
+Requirements:
+ - GetSimple CMS 3.1+
+ - News Manager plugin
+ - SA GS Admin Toolbar plugin
+
+ 
