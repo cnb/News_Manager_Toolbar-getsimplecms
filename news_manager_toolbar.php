@@ -1,5 +1,19 @@
 <?php
+/*
 
+"News Manager Toolbar" plugin
+
+Integrates News Manager with the SA GS Admin Toolbar. Adds top level links to:
+- News Manager main admin page
+- Create new post
+- Edit post (if viewing a post in the frontend)
+
+Requires:
+- SA GS Admin Toolbar <http://get-simple.info/extend/plugin/sa-gs-admin-toolbar/483>
+- News Manager <http://get-simple.info/extend/plugin/news-manager-updated/541/>
+
+*/
+	
 # register plugin
 $thisfile = basename(__FILE__, ".php");
 register_plugin(
